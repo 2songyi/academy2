@@ -1,12 +1,19 @@
 package com.varxyz.banking.domain;
 
 public class CheckingAccount extends Account {
-
-	private double overdraftAmount = 1000.0;
+	private static final double DEFAULT_OVERDRAFT = 1000;
+	private double overdraftAmount;
 	
 	// super()를 이용해 부모클래스에서 선언한 생성자를 호출한다.
 	public CheckingAccount(String accountNum, double balance) {
+//		super(accountNum, balance);
+//		this.overdraftAmount = overdraftAmount;
+		this(accountNum, balance, DEFAULT_OVERDRAFT);
+	}
+	
+	public CheckingAccount(String accountNum, double balance, double overdraftAmount) {
 		super(accountNum, balance);
+		this.overdraftAmount = overdraftAmount;
 	}
 
 	@Override

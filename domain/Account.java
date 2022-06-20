@@ -7,9 +7,10 @@ package com.varxyz.banking.domain;
  */
 public abstract class Account {
 	// 공통정보
-	private String accountNum; // 계좌번호
+	protected String accountNum; // 계좌번호
 	protected double balance; // 잔액
-
+	protected Customer customer;
+	
 	public Account(String accountNum, double balance) {
 		this.setAccountNum(accountNum);
 		this.balance = balance;
@@ -29,5 +30,9 @@ public abstract class Account {
 
 	public void setAccountNum(String accountNum) {
 		this.accountNum = accountNum;
+	}
+	
+	public void setCustomer(Customer customer) {
+		this.customer = customer;
 	}
 }

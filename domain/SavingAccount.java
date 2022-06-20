@@ -1,13 +1,19 @@
 package com.varxyz.banking.domain;
 
 public class SavingAccount extends Account {
-
-	private double interestRate = 1.5;
+	private static final double DEFALT_INTEREST_RATE = 0.03;
+	private double interestRate;
 	
 	// super()를 이용해 부모클래스에서 선언한 생성자를 호출한다.
 	public SavingAccount(String accountNum, double balance) {
-		super(accountNum, balance);
+		this(accountNum, balance, DEFALT_INTEREST_RATE);
 	}
+	
+	public SavingAccount(String accountNum, double balance, double interestRate) {
+		super(accountNum, balance);
+		this.interestRate = interestRate;
+	}
+
 
 	@Override
 	public void withdraw(double amount) {
